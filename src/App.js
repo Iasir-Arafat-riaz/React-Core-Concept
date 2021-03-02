@@ -2,25 +2,30 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  var elonMask = { com: "spaceX", age: 50, job: "tesla", status: "rich" }
-  var gates = { com: "microsoft", age: 60, job: "ibm", status: "rich" }
-  var coustom = {
-    color: "red",
-    backgroundColor: "blue"
-  }
+  const array=["army","freedom Fighter"]
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit done <code>src/App.js</code> and save to reload.
-        </p>
-        <p>my first react app</p>
-        <h3 style={{color:"green"}}>Top Company : {elonMask.com + " " + elonMask.job}</h3>
-        <h3 style={coustom}>Windows Operating system Provider: {gates.com}</h3>
+       
+       <Character name="mohammad mahmudur" desc="my university friend"></Character>
+       <Character name={array[0]} desc="our country hero"></Character>
+       <Character name = "toki" desc="classmate + crime partner"></Character>
+       <Character name="anjan" desc="school friend forever"></Character>
+        
       </header>
     </div>
   );
 }
+
+function Character(props){
+  let style= {color:"red"}
+  return (
+  <div style={{border:"2px solid gold" , margin:"10px", borderRadius:"10px", padding:"10px"}}>
+       <h2 style={style}>{props.name}</h2>
+       <p>{props.desc}</p>
+  </div>)
+}
+
 
 export default App;
