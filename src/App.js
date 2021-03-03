@@ -11,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Album></Album>
         <Users></Users>
         <Counter></Counter>
         <ul>
@@ -41,6 +42,21 @@ function App() {
     </div>
   );
 }
+function Album(){
+  const[album,setAlbum]=useState([]);
+  useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/albums")
+    .then(respo=>respo.json())
+    .then(data=>setAlbum(data))
+  },[])
+  return (<div>
+    <h1>Total Album : {album.length}</h1>
+    {console.log(album)}
+    <ul>
+      {album.map(alb=><ul>{alb.id+" "+alb.title}</ul>)}
+    </ul>
+  </div>)
+}
 function Users(){
   const [users, setUsers]=useState([])
   useEffect(()=>{
@@ -56,6 +72,8 @@ function Users(){
        </ul>
   </div>)
 }
+
+
 
 function Counter() {
   const [set, setCount] = useState(10);
