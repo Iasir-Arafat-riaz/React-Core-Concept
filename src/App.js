@@ -42,34 +42,34 @@ function App() {
     </div>
   );
 }
-function Album(){
-  const[album,setAlbum]=useState([]);
-  useEffect(()=>{
+function Album() {
+  const [album, setAlbum] = useState([]);
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/albums")
-    .then(respo=>respo.json())
-    .then(data=>setAlbum(data))
-  },[])
+      .then(respo => respo.json())
+      .then(data => setAlbum(data))
+  }, [])
   return (<div>
     <h1>Total Album : {album.length}</h1>
     {console.log(album)}
     <ul>
-      {album.map(alb=><ul>{alb.id+" "+alb.title}</ul>)}
+      {album.map(alb => <ul>{alb.id + " " + alb.title}</ul>)}
     </ul>
   </div>)
 }
-function Users(){
-  const [users, setUsers]=useState([])
-  useEffect(()=>{
+function Users() {
+  const [users, setUsers] = useState([])
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
-    .then(res=>res.json())
-    .then(data=>setUsers(data))
-  },[])
+      .then(res => res.json())
+      .then(data => setUsers(data))
+  }, [])
   return (<div>
-       <h2>Dynamic Users: {users.length}</h2>
-       {console.log(users)}
-       <ul>
-         {users.map(user=><li>{user.name+" = "+user.phone}</li>)}
-       </ul>
+    <h2>Dynamic Users: {users.length}</h2>
+    {console.log(users)}
+    <ul>
+      {users.map(user => <li>{user.name + " = " + user.phone}</li>)}
+    </ul>
   </div>)
 }
 
