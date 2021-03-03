@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const array = ["army", "freedom Fighter", "movement leader", "political leader",]
@@ -11,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Users></Users>
         <Counter></Counter>
         <ul>
           {array.map(position => <li>{position}</li>)}
@@ -40,6 +41,22 @@ function App() {
     </div>
   );
 }
+function Users(){
+  const [users, setUsers]=useState([])
+  useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(res=>res.json())
+    .then(data=>setUsers(data))
+  },[])
+  return (<div>
+       <h2>Dynamic Users: {users.length}</h2>
+       {console.log(users)}
+       <ul>
+         {users.map(user=><li>{user.name+" = "+user.phone}</li>)}
+       </ul>
+  </div>)
+}
+
 function Counter() {
   const [set, setCount] = useState(10);
   const addHandler = () => setCount(set + 1);
