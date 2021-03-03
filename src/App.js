@@ -11,17 +11,17 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Counter></Counter>
+        <Counter></Counter>
         <ul>
           {array.map(position => <li>{position}</li>)}
         </ul>
         <ul>
           {products.map(product => <div>{product.price}</div>)}
         </ul>
-        
+
         {products.map(prod => <Product des={prod.name} prize={prod.price}></Product>)}
 
-        
+
         <Product des={products[0].name} prize={products[0].price}></Product>
         <Product des={products[1].name} prize={products[1].price}></Product>
         <Product des={products[2].name} prize={products[2].price}></Product>
@@ -41,12 +41,12 @@ function App() {
   );
 }
 function Counter() {
-  const [set, setCount]= useState(10);
-  const addHandler =()=>setCount(set+1); 
-  
+  const [set, setCount] = useState(10);
+  const addHandler = () => setCount(set + 1);
+
   return (<div>
     <h1>count: {set}</h1>
-    <button onClick={()=>setCount(set-1)}>decrease</button>
+    <button onClick={() => setCount(set - 1)}>decrease</button>
     <button onClick={addHandler}>increase</button>
   </div>)
 }
