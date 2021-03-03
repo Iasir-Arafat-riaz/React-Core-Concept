@@ -62,6 +62,7 @@ function Product2(props) {
   </div>)
 }
 
+
 function Product(props) {
   const proStyle = { color: "silver", backgroundColor: "gray", margin: "10px", borderRadius: "10px", padding: "10px", float: "left", width: "300px" }
   console.log(props)
