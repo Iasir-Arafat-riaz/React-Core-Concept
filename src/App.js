@@ -33,6 +33,7 @@ function App() {
         <Product2 item={products[1]}></Product2>
 
 
+        
         <Character name="mohammad mahmudur" desc="my university friend"></Character>
         <Character name={array[0]} desc="our country hero"></Character>
         <Character name="toki" desc="classmate + crime partner"></Character>
